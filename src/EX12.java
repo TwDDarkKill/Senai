@@ -9,7 +9,7 @@ public class EX12 {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<String> historico = new ArrayList<String>(); // declaração do ArrayList
 		int menu, v1, v2, soma, pow, rz;
-		//a
+
 		do {
 			menu = Integer.parseInt(JOptionPane.showInputDialog(null,
 					"Menu de Opções\n\n" +
