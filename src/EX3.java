@@ -1,9 +1,9 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX3 {
 
 	public static void main(String[] args) {
-			
+		//teste
 			double n1,n2,n3,n4,media;
 			String classif = null;
 			

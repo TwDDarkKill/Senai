@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX14 {
-
+	//teste
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,8 +1,8 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX6 {
 	public static void main(String[] args) {
-
+//teste
 		double pi, pm = 0.75, pf = 0.67, ai = 1.524, a_cm, a_m;
 
 		String sexo = JOptionPane.showInputDialog

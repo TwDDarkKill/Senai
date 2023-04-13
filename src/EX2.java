@@ -1,9 +1,9 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX2 {
 
 	public static void main(String[] args) {
-			
+		//teste
 			int v1,v2,v3;
 			
 			v1 = (int) Double.parseDouble(JOptionPane.showInputDialog("Informe o primeiro valor"));

@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX11 {
-
+	//teste
 	public static void main(String[] args) {
 
 		String triangulo;

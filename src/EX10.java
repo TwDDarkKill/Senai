@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX10 {
-
+	//teste
 	public static void main(String[] args) {
 		int imc;
 		double peso, a_cm, a_m;

@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX8 {
-
+	//teste
 	public static void main(String[] args) {
 
 		double sl, slf = 0, gr, sbr,tx=0;

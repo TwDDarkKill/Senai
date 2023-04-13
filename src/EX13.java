@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX13 {
-
+	//teste
 	public static void main(String[] args) {
 
 		int hrin, hrf, mnin, mnf;

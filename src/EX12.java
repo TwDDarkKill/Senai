@@ -1,10 +1,9 @@
-import javax.swing.JOptionPane;
-import java.lang.Math;
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EX12 {
-
+	//teste
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<String> historico = new ArrayList<String>(); // declaração do ArrayList

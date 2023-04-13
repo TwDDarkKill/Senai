@@ -1,5 +1,5 @@
-import javax.swing.JOptionPane;
-
+import javax.swing.*;
+//teste
 public class EX16 {
 	public static void main(String[] args) {
 		int ano, pab = 0;

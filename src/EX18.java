@@ -1,7 +1,7 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class EX18 {
-
+	//teste
 	public static void main(String[] args) {
 
 		double n1,n2,n3,n4,media;
