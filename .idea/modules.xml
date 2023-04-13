@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Exercicios if-else.iml" filepath="$PROJECT_DIR$/Exercicios if-else.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exercicios_SWC/Exercicios_SWC.iml" filepath="$PROJECT_DIR$/Exercicios_SWC/Exercicios_SWC.iml" />
     </modules>
   </component>
 </project>
