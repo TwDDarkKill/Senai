@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" afterDir="false" />
+    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="18/04">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +40,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Calculadora">
+  <component name="RunManager" selected="Application.EX12">
     <configuration name="Calculadora" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="execs.Calculadora" />
       <module name="Exercicios_SWC" />
@@ -96,8 +77,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Calculadora" />
         <item itemvalue="Application.Calculadora_2" />
+        <item itemvalue="Application.Calculadora" />
         <item itemvalue="Application.EX12" />
         <item itemvalue="Application.EX17" />
       </list>
@@ -112,6 +93,18 @@
       <option name="presentableId" value="Default" />
       <updated>1681422822200</updated>
     </task>
+    <task id="LOCAL-00001" summary="18/04">
+      <created>1681857207247</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681857207247</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="18/04" />
+    <option name="LAST_COMMIT_MESSAGE" value="18/04" />
   </component>
 </project>
