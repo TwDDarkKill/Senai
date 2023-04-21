@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="18/04">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_22_21__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_22_21__Changes_.xml" afterDir="false" />
+    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="20/04">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios if-else/src/EX1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios if-else/src/EX1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios if-else/src/EX11.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios if-else/src/EX11.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercicios if-else/src/EX12.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios if-else/src/EX12.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios if-else/src/EX7.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios if-else/src/EX7.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -47,20 +45,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.EX12">
-    <configuration name="Calculadora" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="execs.Calculadora" />
-      <module name="Exercicios_SWC" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="execs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Calculadora_2">
     <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
       <module name="Exercicios_SWC" />
@@ -70,6 +55,13 @@
     </configuration>
     <configuration name="EX1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EX1" />
+      <module name="Exercicios if-else" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EX10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EX10" />
       <module name="Exercicios if-else" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,11 +83,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Calculadora_2" />
+        <item itemvalue="Application.EX10" />
         <item itemvalue="Application.EX12" />
         <item itemvalue="Application.EX11" />
         <item itemvalue="Application.EX1" />
-        <item itemvalue="Application.Calculadora_2" />
-        <item itemvalue="Application.Calculadora" />
       </list>
     </recent_temporary>
   </component>
@@ -115,12 +107,20 @@
       <option name="project" value="LOCAL" />
       <updated>1681857207247</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20/04">
+      <created>1682035616985</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682035616985</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="18/04" />
-    <option name="LAST_COMMIT_MESSAGE" value="18/04" />
+    <MESSAGE value="20/04" />
+    <option name="LAST_COMMIT_MESSAGE" value="20/04" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Senai$EX12.ic" NAME="EX12 Coverage Results" MODIFIED="1682035521474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
