@@ -1,9 +1,9 @@
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class EX7 {
 	//teste
 	public static void main(String[] args) {
-			
 			double np1,np2,np3,media,n1,n2,n3,p1=4,p2=2;
 		String classif;
 			

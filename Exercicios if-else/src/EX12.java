@@ -1,24 +1,27 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class EX12 {
 	//teste
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		ArrayList<String> historico = new ArrayList<String>(); // declaração do ArrayList
+		ArrayList<String> historico = new ArrayList<>(); // declaração do ArrayList
 		int menu, v1, v2, soma, pow, rz;
 
 		do {
 			menu = Integer.parseInt(JOptionPane.showInputDialog(null,
-					"Menu de Opções\n\n" +
-							"1 - Somar dois números\n" +
-							"2 - Raiz quadrada de um número\n" +
-							"3 - Elevar um número a uma potência\n" +
-							"4 - Histórico\n" +
-							"5 - Sair\n\n" +
-							"Digite a opção desejada\n\n",
-					"Opções de calculos", JOptionPane.PLAIN_MESSAGE));
+					"""
+							Menu de Opções
+
+							1 - Somar dois números
+							2 - Raiz quadrada de um número
+							3 - Elevar um número a uma potência
+							4 - Histórico
+							5 - Sair
+
+							Digite a opção desejada
+
+							""",
+					"Opções de operações", JOptionPane.PLAIN_MESSAGE));
 
 			if (menu < 1 || menu > 5) {
 				JOptionPane.showMessageDialog(null, "Opção inválida digite novamente", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -39,13 +42,14 @@ public class EX12 {
 				pow = (int) Math.pow(v1, v2);
 				historico.add(v1 + " elevado a " + v2 + " = " + pow); // adicionar a expressão ao ArrayList
 				JOptionPane.showMessageDialog(null, "O calculo da potencia de\n" + "Base : " + v1 + "\nElevado a potência : " + v2 + "\nÉ igual a : " + pow, "Calculo de Potências", JOptionPane.INFORMATION_MESSAGE);
-			} else if (menu == 4) {
+			} else //noinspection SingleStatementInBlock
+				if (menu == 4) {
 				StringBuilder resultados = new StringBuilder();
 				for (String expr : historico){
 					resultados.append(expr).append("\n");
 				}
 				JOptionPane.showMessageDialog(null, "Histórico:\n\n" + resultados, "Histórico de Cálculos", JOptionPane.INFORMATION_MESSAGE);
-			} else if (menu == 5) {
+			} else {
 				JOptionPane.showMessageDialog(null, "Encerrando a aplicação", "Encerrando", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} while (menu != 5);
