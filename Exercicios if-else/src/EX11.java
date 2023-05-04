@@ -1,9 +1,10 @@
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class EX11 {
 	//teste
 	public static void main(String[] args) {
-
+		ArrayList<String> list = new ArrayList<>();
 		String triangulo;
 		double x, y, z;
 
@@ -19,7 +20,7 @@ public class EX11 {
             } else {
     			triangulo = "Todos os lados são diferentes portanto esse é um triangulo escaleno";}
 
-        
+
         	JOptionPane.showMessageDialog(null, triangulo, "Resultado", JOptionPane.INFORMATION_MESSAGE);
 	}
 

@@ -15,7 +15,7 @@ public class EX10 {
 
 		if (imc <= 16) {
 			classificacao = "Magreza Severa";
-		} else if (imc > 16 && imc <= 17) {
+		} else if (imc == 17) {
 			classificacao = "Magreza Moderada";
 		} else if (imc <= 18.5) {
 			classificacao = "Magreza Leve";
