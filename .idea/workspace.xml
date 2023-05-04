@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9a4f0f8-30ce-4e98-9966-da6f10c9786e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/TwDDarkKill.xml" afterDir="false" />
+    <list default="true" id="c9a4f0f8-30ce-4e98-9966-da6f10c9786e" name="Changes" comment="Calculadora">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_22_21_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_04_2023_22_21__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +17,60 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" root0="SKIP_INSPECTION" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Pastas da Biblioteca/Downloads"
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2Of3tON6327JlbbN05wkrLNnyKL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
+      <module name="Exercicios_SWC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Calculadora_2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Calculadora">
+      <created>1681872733614</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681872733614</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9a4f0f8-30ce-4e98-9966-da6f10c9786e" name="Changes" comment="Calculadora" />
+      <created>1681938024551</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681938024551</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Calculadora" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculadora" />
   </component>
 </project>

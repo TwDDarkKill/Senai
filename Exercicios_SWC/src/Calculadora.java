@@ -69,13 +69,13 @@ public class Calculadora {
                     resultado = v1 / v2;
                     resolução = "O resultado da divisão de";
                     oper = "dividido por";
+                }else{
+                    JOptionPane.showMessageDialog(null,"Opção digitada invalida");
                 }
 
                 JOptionPane.showMessageDialog
                         (null,String.format("%s\n%d %s %d\nÉ igual a %.1f",resolução,v1,oper,v2,resultado),"Resultado",JOptionPane.INFORMATION_MESSAGE);
 
-            default:
-                break;
         }
     }
 
