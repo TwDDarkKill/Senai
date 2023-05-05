@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
-      <change afterPath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Objetos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
     "onboarding.tips.debug.path": "C:/Users/TecDevNoite/IdeaProjects/Senai/Exercicios_OO/src/Main.java"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Desafio">
     <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
       <module name="Exercicios_SWC" />
@@ -117,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Desafio" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Calculadora_2" />
         <item itemvalue="Application.EX10" />
         <item itemvalue="Application.EX12" />
@@ -148,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682035616985</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Calculadora">
+      <created>1683243406093</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683243406093</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +165,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="18/04" />
     <MESSAGE value="20/04" />
-    <option name="LAST_COMMIT_MESSAGE" value="20/04" />
+    <MESSAGE value="Calculadora" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculadora" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Senai$EX12.ic" NAME="EX12 Coverage Results" MODIFIED="1682035521474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
