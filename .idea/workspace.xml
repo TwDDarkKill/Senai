@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Objetos.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +145,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683243406093</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Calculadora">
+      <created>1683331549855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683331549855</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Calculadora">
+      <created>1683331561903</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683331561903</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
