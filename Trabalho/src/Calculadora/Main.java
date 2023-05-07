@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         CalculosMathematics calculosMathematics = new CalculosMathematics();
         ArrayList<String> historico = new ArrayList<>();
-        double v1,v2,resultado;
+        double v1, v2, resultado;
         char operador;
 
         while (true) {
@@ -28,8 +28,8 @@ public class Main {
             try {
                 op = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Opção inválida! Digite um número inteiro válido.");
-                scanner.next(); // esvazia o buffer do Scanner
+                System.out.printf("Erro : %s ", e.getCause());
+                scanner.nextLine(); // esvazia o buffer do Scanner
                 continue; // volta para o início do loop
             }
 
@@ -39,8 +39,8 @@ public class Main {
                 try {
                     v1 = scanner.nextInt();
                 } catch (InputMismatchException e) {
-                    System.out.println("Valor inválido! Digite um número inteiro válido.");
-                    scanner.next(); // esvazia o buffer do Scanner
+                    System.out.printf("Erro: %s\n", e.getCause());
+                    scanner.nextLine(); // esvazia o buffer do Scanner
                     continue; // volta para o início do loop
                 }
 
@@ -56,10 +56,9 @@ public class Main {
                             // reinicia o loop
                         }
                     } catch (InputMismatchException e) {
-                        System.out.println("Erro: operador inválido");
+                        System.out.printf("Erro : %s ", e.getCause());
                         System.out.print("Digite o operador (+ - * /): ");
-                        scanner.next(); // consome o token inválido
-                        // reinicia o loop
+                        scanner.nextLine(); // consome o token inválido
                     }
                 }
 
@@ -68,21 +67,21 @@ public class Main {
                 try {
                     v2 = scanner.nextInt();
                 } catch (InputMismatchException e) {
-                    System.out.println("Valor inválido! Digite um número inteiro válido.");
-                    scanner.next(); // esvazia o buffer do Scanner
+                    System.out.printf("Erro : %s %n", e);
+                    scanner.nextLine(); // esvazia o buffer do Scanner
                     continue; // volta para o início do loop
                 }
 
                 switch (operador) {
-                    case '+' -> resultado = calculosMathematics.Soma(v1,v2);
-                    case '-' -> resultado = calculosMathematics.Subtrai(v1,v2);
-                    case '*' -> resultado = calculosMathematics.Multiplica(v1,v2);
+                    case '+' -> resultado = calculosMathematics.Soma(v1, v2);
+                    case '-' -> resultado = calculosMathematics.Subtrai(v1, v2);
+                    case '*' -> resultado = calculosMathematics.Multiplica(v1, v2);
                     case '/' -> {
                         if (v2 == 0) {
                             System.out.println("Não é possível realizar uma divisão por zero!");
                             continue; // volta para o início do loop
                         } else {
-                            resultado = calculosMathematics.Divide(v1,v2);
+                            resultado = calculosMathematics.Divide(v1, v2);
                         }
                     }
                     default -> {
@@ -102,8 +101,6 @@ public class Main {
             } else if (op == 3) {
                 System.out.println("Encerrando aplicação");
                 System.exit(0);
-            } else {
-                System.out.println("Opção digitada inválida!\n");
             }
         }
     }
