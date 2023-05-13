@@ -52,9 +52,13 @@ public class Calculos {
                                             4 - Divisão
                                             
                                             Insirá a opção
-                                            
                                             ""","Operações aritméticas",JOptionPane.QUESTION_MESSAGE));
-                            break;
+
+                            if (operador ==1 || operador ==2 || operador ==3 || operador==4) { //Verifica se o operador é válido
+                                break; //Encerra o loop
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira uma operação válida", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
+                            }
                         } catch (NumberFormatException e) {
                             JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
                         }
