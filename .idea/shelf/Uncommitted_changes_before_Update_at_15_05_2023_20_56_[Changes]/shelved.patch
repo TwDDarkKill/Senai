@@ -1,0 +1,782 @@
+Index: Trabalho/src/Calculadora/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Calculadora;\r\n\r\nimport Objetos.CalculosMathematics;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.InputMismatchException;\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        CalculosMathematics calculosMathematics = new CalculosMathematics();\r\n        ArrayList<String> historico = new ArrayList<>();\r\n        double v1, v2, resultado;\r\n        char operador;\r\n\r\n        while (true) {\r\n            Scanner scanner = new Scanner(System.in);\r\n            System.out.println(\"\"\"\r\n                    =====Calculadora=====\r\n\r\n                    1 - Realizar uma operação\r\n                    2 - Histórico de operações\r\n                    3 - Sair\r\n                    \"\"\");\r\n            System.out.print(\"Digite a opção desejada: \");\r\n\r\n            int op;\r\n            try {\r\n                op = scanner.nextInt();\r\n            } catch (InputMismatchException e) {\r\n                System.out.printf(\"Erro : %s \", e.getCause());\r\n                scanner.nextLine(); // esvazia o buffer do Scanner\r\n                continue; // volta para o início do loop\r\n            }\r\n\r\n            if (op == 1) {\r\n                System.out.print(\"Digite o primeiro valor: \");\r\n\r\n                try {\r\n                    v1 = scanner.nextInt();\r\n                } catch (InputMismatchException e) {\r\n                    System.out.printf(\"Erro: %s\\n\", e.getCause());\r\n                    scanner.nextLine(); // esvazia o buffer do Scanner\r\n                    continue; // volta para o início do loop\r\n                }\r\n\r\n                System.out.print(\"Digite o operador (+ - * /): \");\r\n                while (true) {\r\n                    try {\r\n                        operador = scanner.next().charAt(0);\r\n                        if (operador == '+' || operador == '-' || operador == '*' || operador == '/') {\r\n                            break;\r\n                        } else {\r\n                            System.out.println(\"Erro: operador inválido\");\r\n                            System.out.print(\"Digite o operador (+ - * /): \");\r\n                            // reinicia o loop\r\n                        }\r\n                    } catch (InputMismatchException e) {\r\n                        System.out.printf(\"Erro : %s \", e.getCause());\r\n                        System.out.print(\"Digite o operador (+ - * /): \");\r\n                        scanner.nextLine(); // consome o token inválido\r\n                    }\r\n                }\r\n\r\n                System.out.print(\"Digite o segundo valor: \");\r\n\r\n                try {\r\n                    v2 = scanner.nextInt();\r\n                } catch (InputMismatchException e) {\r\n                    System.out.printf(\"Erro : %s %n\", e);\r\n                    scanner.nextLine(); // esvazia o buffer do Scanner\r\n                    continue; // volta para o início do loop\r\n                }\r\n\r\n                switch (operador) {\r\n                    case '+' -> resultado = calculosMathematics.Soma(v1, v2);\r\n                    case '-' -> resultado = calculosMathematics.Subtrai(v1, v2);\r\n                    case '*' -> resultado = calculosMathematics.Multiplica(v1, v2);\r\n                    case '/' -> {\r\n                        if (v2 == 0) {\r\n                            System.out.println(\"Não é possível realizar uma divisão por zero!\");\r\n                            continue; // volta para o início do loop\r\n                        } else {\r\n                            resultado = calculosMathematics.Divide(v1, v2);\r\n                        }\r\n                    }\r\n                    default -> {\r\n                        System.out.println(\"Operação inválida!\");\r\n                        continue; // volta para o início do loop\r\n                    }\r\n                }\r\n                System.out.printf(\"O resultado de %.2f %c %.2f = %.2f\\n%n\", v1, operador, v2, resultado);\r\n                String ehs = String.format(\"%.2f %c %.2f = %.2f\\n\", v1, operador, v2, resultado);\r\n                historico.add(ehs);\r\n            } else if (op == 2) {\r\n                System.out.println(\"=====Histórico=====\\n\\n\");\r\n                System.out.printf(\"Foram realizadas %d operações\\n%n\", historico.size());\r\n                for (String s : historico) {\r\n                    System.out.println(s);\r\n                }\r\n            } else if (op == 3) {\r\n                System.out.println(\"Encerrando aplicação\");\r\n                System.exit(0);\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Trabalho/src/Calculadora/Main.java b/Trabalho/src/Calculadora/Main.java
+--- a/Trabalho/src/Calculadora/Main.java	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ b/Trabalho/src/Calculadora/Main.java	(date 1683669666188)
+@@ -28,7 +28,7 @@
+             try {
+                 op = scanner.nextInt();
+             } catch (InputMismatchException e) {
+-                System.out.printf("Erro : %s ", e.getCause());
++                System.out.println(String.format("Erro : %s ", e));
+                 scanner.nextLine(); // esvazia o buffer do Scanner
+                 continue; // volta para o início do loop
+             }
+@@ -39,7 +39,7 @@
+                 try {
+                     v1 = scanner.nextInt();
+                 } catch (InputMismatchException e) {
+-                    System.out.printf("Erro: %s\n", e.getCause());
++                    System.out.printf("Erro: %s\n", e);
+                     scanner.nextLine(); // esvazia o buffer do Scanner
+                     continue; // volta para o início do loop
+                 }
+@@ -56,7 +56,7 @@
+                             // reinicia o loop
+                         }
+                     } catch (InputMismatchException e) {
+-                        System.out.printf("Erro : %s ", e.getCause());
++                        System.out.printf("Erro : %s ", e);
+                         System.out.print("Digite o operador (+ - * /): ");
+                         scanner.nextLine(); // consome o token inválido
+                     }
+@@ -89,8 +89,8 @@
+                         continue; // volta para o início do loop
+                     }
+                 }
+-                System.out.printf("O resultado de %.2f %c %.2f = %.2f\n%n", v1, operador, v2, resultado);
+-                String ehs = String.format("%.2f %c %.2f = %.2f\n", v1, operador, v2, resultado);
++                System.out.printf("O resultado de %.0f %c %.0f = %.0f\n%n", v1, operador, v2, resultado);
++                String ehs = String.format("%.0f %c %.0f = %.0f\n", v1, operador, v2, resultado);
+                 historico.add(ehs);
+             } else if (op == 2) {
+                 System.out.println("=====Histórico=====\n\n");
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,109 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]" date="1683346428068" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 06/05/2023 01:13 [Changes]" />
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX1.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX1.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX1.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX17.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX17.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX17.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX3.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX3.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX3.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios_SWC/execs/Calculadora.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios_SWC/execs/Calculadora.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/Calculadora.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios_SWC/Calculadora_2.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios_SWC/Calculadora_2.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/Calculadora_2.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX18.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX18.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX18.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX10.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX10.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX10.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX15.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX15.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX15.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX9.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX9.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX9.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX16.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX16.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX16.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX8.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX8.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX8.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios_SWC/Desafio.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios_SWC/Desafio.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/Desafio.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX2.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX2.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX2.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX7.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX7.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX7.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX12.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX12.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX12.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX6.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX6.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX6.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX14.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX14.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX14.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX11.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX11.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX11.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX4.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX4.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX4.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX5.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX5.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX5.class" />
+-  </binary>
+-  <binary>
+-    <option name="BEFORE_PATH" value="out/production/Exercicios if-else/EX13.class" />
+-    <option name="AFTER_PATH" value="out/production/Exercicios if-else/EX13.class" />
+-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/EX13.class" />
+-  </binary>
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13_[Changes]/shelved.patch	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,210 +0,0 @@
+-Index: Exercicios if-else/src/EX1.java
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import javax.swing.*;\r\nimport java.util.ArrayList;\r\n\r\npublic class EX1 {\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tArrayList<String> Lista = new ArrayList<String>();\r\n\t\t//teste\r\n\t\tint v1, v2;\r\n\r\n\t\tv1 = (int) Double.parseDouble(JOptionPane.showInputDialog\r\n\t\t\t\t(null, \"Informe o primeiro valor\", \"Entrada de dados\",JOptionPane.DEFAULT_OPTION));\r\n\r\n\t\tv2 = (int) Double.parseDouble(JOptionPane.showInputDialog\r\n\t\t\t\t(null, \"Informe segundo valor\", \"Entrada de dados\",JOptionPane.DEFAULT_OPTION));\r\n\r\n\t\tString lhs = null;\r\n\t\tif (v1 > v2) {\r\n\t\t\tJOptionPane.showMessageDialog\r\n\t\t\t\t\t(null, \"O primeiro valor é maior que o segundo!\", \"Resultado\",JOptionPane.INFORMATION_MESSAGE);\r\n\t\t\t;}\r\n\t\telse if (v1 < v2) {\r\n\t\t\tJOptionPane.showMessageDialog\r\n\t\t\t\t\t(null, \"O segundo valor é maior que o primeiro!\", \"Resultado\",JOptionPane.INFORMATION_MESSAGE);\r\n\t\t\t;}\r\n\t\telse {\r\n\t\t\tJOptionPane.showMessageDialog\r\n\t\t\t\t\t(null, \"Os valores são iguais!\", \"Resultado\", JOptionPane.INFORMATION_MESSAGE);;\r\n\t\t}\r\n\t\tLista.add(lhs);\r\n\t\t\t\tSystem.out.printf(\"Foram realizadas %d consultas\",Lista.size());\r\n\t\t\t\t\tfor (int i =0; i < Lista.size();i++) {\r\n\t\t\t\t\tSystem.out.println(Lista.get(i));\r\n\t\t\t\t}}}\r\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/Exercicios if-else/src/EX1.java b/Exercicios if-else/src/EX1.java
+---- a/Exercicios if-else/src/EX1.java	(revision 6b441d9dd9209c001a3a134a3da9ec68e4cfa72d)
+-+++ b/Exercicios if-else/src/EX1.java	(date 1683259486161)
+-@@ -4,31 +4,29 @@
+- public class EX1 {
+- 
+- 	public static void main(String[] args) {
+--		ArrayList<String> Lista = new ArrayList<String>();
+--		//teste
+--		int v1, v2;
+-+		ArrayList<String> Lista = new ArrayList<>(); // Cria um ArrayList para armazenar valores de consulta
+-+
+-+		// Solicita a entrada de dois valores numéricos
+-+		double v1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o primeiro valor", "Entrada de dados", JOptionPane.PLAIN_MESSAGE));
+-+		double v2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o segundo valor", "Entrada de dados", JOptionPane.PLAIN_MESSAGE));
+- 
+--		v1 = (int) Double.parseDouble(JOptionPane.showInputDialog
+--				(null, "Informe o primeiro valor", "Entrada de dados",JOptionPane.DEFAULT_OPTION));
+-+		if (v1 > v2) { // verifica se o primeiro valor é maior que o segundo
+-+			JOptionPane.showMessageDialog(null, "O primeiro valor é maior que o segundo!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+-+		} else if (v1 < v2) { // verifica se o segundo valor é maior que o primeiro
+-+			JOptionPane.showMessageDialog(null, "O segundo valor é maior que o primeiro!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+-+		} else { // caso contrário, os valores são iguais
+-+			JOptionPane.showMessageDialog(null, "Os valores são iguais!", "Resultado", JOptionPane.INFORMATION_MESSAGE);
+-+		}
+- 
+--		v2 = (int) Double.parseDouble(JOptionPane.showInputDialog
+--				(null, "Informe segundo valor", "Entrada de dados",JOptionPane.DEFAULT_OPTION));
+-+		// Armazena o resultado da consulta na lista
+-+		Lista.add("v1 = " + v1 + ", v2 = " + v2);
+- 
+--		String lhs = null;
+--		if (v1 > v2) {
+--			JOptionPane.showMessageDialog
+--					(null, "O primeiro valor é maior que o segundo!", "Resultado",JOptionPane.INFORMATION_MESSAGE);
+--			;}
+--		else if (v1 < v2) {
+--			JOptionPane.showMessageDialog
+--					(null, "O segundo valor é maior que o primeiro!", "Resultado",JOptionPane.INFORMATION_MESSAGE);
+--			;}
+--		else {
+--			JOptionPane.showMessageDialog
+--					(null, "Os valores são iguais!", "Resultado", JOptionPane.INFORMATION_MESSAGE);;
+-+		// Exibe a quantidade de consultas realizadas
+-+		System.out.printf("Foram realizadas %d consultas.\n", Lista.size());
+-+
+-+		// Exibe todos os valores de consulta armazenados na lista
+-+		for (String s : Lista) {
+-+			System.out.println(s);
+- 		}
+--		Lista.add(lhs);
+--				System.out.printf("Foram realizadas %d consultas",Lista.size());
+--					for (int i =0; i < Lista.size();i++) {
+--					System.out.println(Lista.get(i));
+--				}}}
+-+	}
+-+}
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"Calculadora\">\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/Exercicios_05_05.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/main/EX1.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/main/EX2.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/PrimeiraClasse.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/SegundaClasse.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Exercicios_SWC/src/Objetos.java\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0720cc63-a475-466b-a604-90cf00200d14\" />\r\n        <option name=\"url\" value=\"https://github.com/TwDDarkKill/Senai.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/PrimeiraClasse.java\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/SegundaClasse.java\" root0=\"SKIP_INSPECTION\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OODdZQMRZ80OfggHm86kDqrbWG\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"jdk.selected.JAVA_MODULE\": \"17\",\r\n    \"last_opened_file_path\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_05_05/src/Main.java\",\r\n    \"two.files.diff.last.used.file\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Application.EX2\">\r\n    <configuration name=\"Calculadora_2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Calculadora_2\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Desafio\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Desafio\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX1\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.exercicios.main.EX1\" />\r\n      <module name=\"Exercicios_05_05\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.exercicios.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.exercicios.main.EX2\" />\r\n      <module name=\"Exercicios_05_05\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.exercicios.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.exercicios.main.Main\" />\r\n      <module name=\"Exercicios_05_05\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.exercicios.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.EX2\" />\r\n        <item itemvalue=\"Application.EX1\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Desafio\" />\r\n        <item itemvalue=\"Application.Calculadora_2\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"\" />\r\n      <created>1681422822200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681422822200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"18/04\">\r\n      <created>1681857207247</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681857207247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"20/04\">\r\n      <created>1682035616985</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682035616985</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"18/04\" />\r\n    <MESSAGE value=\"20/04\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"20/04\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Senai$EX12.ic\" NAME=\"EX12 Coverage Results\" MODIFIED=\"1682035521474\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 6b441d9dd9209c001a3a134a3da9ec68e4cfa72d)
+-+++ b/.idea/workspace.xml	(date 1683259099381)
+-@@ -5,16 +5,29 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/.gitignore" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/Exercicios_05_05.iml" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/main/EX1.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/main/EX2.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/PrimeiraClasse.java" afterDir="false" />
+--      <change afterPath="$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/SegundaClasse.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Objetos.java" beforeDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/Exercicios if-else/src/EX1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios if-else/src/EX1.java" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX1.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX10.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX11.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX12.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX13.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX14.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX15.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX16.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX17.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX18.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX2.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX3.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX4.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX5.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX6.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX7.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX8.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios if-else/EX9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios if-else/EX9.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" afterDir="false" />
+-+      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/execs/Calculadora.class" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -63,30 +76,31 @@
+-     <option name="hideEmptyMiddlePackages" value="true" />
+-     <option name="showLibraryContents" value="true" />
+-   </component>
+--  <component name="PropertiesComponent"><![CDATA[{
+--  "keyToString": {
+--    "ASKED_ADD_EXTERNAL_FILES": "true",
+--    "RunOnceActivity.OpenProjectViewOnStart": "true",
+--    "RunOnceActivity.ShowReadmeOnStart": "true",
+--    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+--    "git-widget-placeholder": "master",
+--    "jdk.selected.JAVA_MODULE": "17",
+--    "last_opened_file_path": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java",
+--    "onboarding.tips.debug.path": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_05_05/src/Main.java",
+--    "two.files.diff.last.used.file": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java"
+-+  <component name="PropertiesComponent">{
+-+  &quot;keyToString&quot;: {
+-+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+-+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+-+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Exercicios&quot;,
+-+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_05_05/src/Main.java&quot;,
+-+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java&quot;
+-   }
+--}]]></component>
+--  <component name="RunManager" selected="Application.EX2">
+--    <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+--      <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
+-+}</component>
+-+  <component name="RunManager" selected="Application.EX1 (1)">
+-+    <configuration name="Desafio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-+      <option name="MAIN_CLASS_NAME" value="Desafio" />
+-       <module name="Exercicios_SWC" />
+-       <method v="2">
+-         <option name="Make" enabled="true" />
+-       </method>
+-     </configuration>
+--    <configuration name="Desafio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+--      <option name="MAIN_CLASS_NAME" value="Desafio" />
+--      <module name="Exercicios_SWC" />
+-+    <configuration name="EX1 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-+      <option name="MAIN_CLASS_NAME" value="EX1" />
+-+      <module name="Exercicios if-else" />
+-       <method v="2">
+-         <option name="Make" enabled="true" />
+-       </method>
+-@@ -132,11 +146,11 @@
+-     </configuration>
+-     <recent_temporary>
+-       <list>
+-+        <item itemvalue="Application.EX1 (1)" />
+-+        <item itemvalue="Application.Desafio" />
+-         <item itemvalue="Application.EX2" />
+-         <item itemvalue="Application.EX1" />
+-         <item itemvalue="Application.Main" />
+--        <item itemvalue="Application.Desafio" />
+--        <item itemvalue="Application.Calculadora_2" />
+-       </list>
+-     </recent_temporary>
+-   </component>
+-@@ -163,7 +177,21 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1682035616985</updated>
+-     </task>
+--    <option name="localTasksCounter" value="3" />
+-+    <task id="LOCAL-00003" summary="Calculadora">
+-+      <created>1683255429981</created>
+-+      <option name="number" value="00003" />
+-+      <option name="presentableId" value="LOCAL-00003" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1683255429981</updated>
+-+    </task>
+-+    <task id="LOCAL-00004" summary="Calculadora">
+-+      <created>1683255444023</created>
+-+      <option name="number" value="00004" />
+-+      <option name="presentableId" value="LOCAL-00004" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1683255444023</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="5" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+-@@ -181,7 +209,8 @@
+-     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-     <MESSAGE value="18/04" />
+-     <MESSAGE value="20/04" />
+--    <option name="LAST_COMMIT_MESSAGE" value="20/04" />
+-+    <MESSAGE value="Calculadora" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Calculadora" />
+-   </component>
+-   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-     <SUITE FILE_PATH="coverage/Senai$EX12.ic" NAME="EX12 Coverage Results" MODIFIED="1682035521474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,40 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"Calculadora\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0720cc63-a475-466b-a604-90cf00200d14\" />\r\n        <option name=\"url\" value=\"https://github.com/TwDDarkKill/Senai.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/main/Main.java\" root0=\"SKIP_INSPECTION\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\" root0=\"SKIP_INSPECTION\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OODdZQMRZ80OfggHm86kDqrbWG\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"jdk.selected.JAVA_MODULE\": \"17\",\r\n    \"last_opened_file_path\": \"D:/Pastas da Biblioteca/Downloads\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/TecDevNoite/IdeaProjects/Senai/Exercicios_OO/src/Main.java\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Application.Desafio\">\r\n    <configuration name=\"Calculadora_2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Calculadora_2\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Desafio\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Desafio\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX10\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX10\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX12\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX12\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.senai.main.Main\" />\r\n      <module name=\"Exercicios_OO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.senai.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Desafio\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Calculadora_2\" />\r\n        <item itemvalue=\"Application.EX10\" />\r\n        <item itemvalue=\"Application.EX12\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"\" />\r\n      <created>1681422822200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681422822200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"18/04\">\r\n      <created>1681857207247</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681857207247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"20/04\">\r\n      <created>1682035616985</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682035616985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Calculadora\">\r\n      <created>1683243406093</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1683243406093</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"18/04\" />\r\n    <MESSAGE value=\"20/04\" />\r\n    <MESSAGE value=\"Calculadora\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Calculadora\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Senai$EX12.ic\" NAME=\"EX12 Coverage Results\" MODIFIED=\"1682035521474\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision b6dd8b73cd6663f8264420132bd513104d9e1f27)
+-+++ b/.idea/workspace.xml	(date 1683248101290)
+-@@ -4,12 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_OO/br/com/senai/main/Main.class" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Desafio.class" afterDir="false" />
+--    </list>
+-+    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -148,7 +143,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1683243406093</updated>
+-     </task>
+--    <option name="localTasksCounter" value="4" />
+-+    <task id="LOCAL-00004" summary="Calculadora">
+-+      <created>1683248055781</created>
+-+      <option name="number" value="00004" />
+-+      <option name="presentableId" value="LOCAL-00004" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1683248055781</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="5" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,98 +0,0 @@
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch	(revision 0f491bb2f64cc8ff59f97a031fae2ad97a4a79fd)
+-+++ /dev/null	(revision 0f491bb2f64cc8ff59f97a031fae2ad97a4a79fd)
+-@@ -1,39 +0,0 @@
+--Index: .idea/workspace.xml
+--IDEA additional info:
+--Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+--<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"18/04\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OODdZQMRZ80OfggHm86kDqrbWG\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.EX12\">\r\n    <configuration name=\"Calculadora\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"execs.Calculadora\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"execs.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Calculadora_2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Calculadora_2\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX12\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX12\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX17\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX17\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Calculadora_2\" />\r\n        <item itemvalue=\"Application.Calculadora\" />\r\n        <item itemvalue=\"Application.EX12\" />\r\n        <item itemvalue=\"Application.EX17\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"\" />\r\n      <created>1681422822200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681422822200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"18/04\">\r\n      <created>1681857207247</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681857207247</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"18/04\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"18/04\" />\r\n  </component>\r\n</project>
+--Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+--<+>UTF-8
+--===================================================================
+--diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+----- a/.idea/workspace.xml	(revision 98e1e15ea2411d0663c02266472b46bc934950f1)
+--+++ b/.idea/workspace.xml	(date 1681865712357)
+--@@ -4,11 +4,7 @@
+--     <option name="autoReloadType" value="SELECTIVE" />
+--   </component>
+--   <component name="ChangeListManager">
+---    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="18/04">
+---      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+---      <change beforePath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Calculadora_2.java" afterDir="false" />
+---      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
+---    </list>
+--+    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="18/04" />
+--     <option name="SHOW_DIALOG" value="false" />
+--     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+--     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+--@@ -100,7 +96,14 @@
+--       <option name="project" value="LOCAL" />
+--       <updated>1681857207247</updated>
+--     </task>
+---    <option name="localTasksCounter" value="2" />
+--+    <task id="LOCAL-00002" summary="18/04">
+--+      <created>1681865702218</created>
+--+      <option name="number" value="00002" />
+--+      <option name="presentableId" value="LOCAL-00002" />
+--+      <option name="project" value="LOCAL" />
+--+      <updated>1681865702218</updated>
+--+    </task>
+--+    <option name="localTasksCounter" value="3" />
+--     <servers />
+--   </component>
+--   <component name="VcsManagerConfiguration">
+-Index: .idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml
+-===================================================================
+-diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml
+-deleted file mode 100644
+---- a/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml	(revision 0f491bb2f64cc8ff59f97a031fae2ad97a4a79fd)
+-+++ /dev/null	(revision 0f491bb2f64cc8ff59f97a031fae2ad97a4a79fd)
+-@@ -1,4 +0,0 @@
+--<changelist name="Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]" date="1681940557000" recycled="true" deleted="true">
+--  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42_[Changes]/shelved.patch" />
+--  <option name="DESCRIPTION" value="Uncommitted changes before Update at 19/04/2023 18:42 [Changes]" />
+--</changelist>
+-\ No newline at end of file
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"Calculadora\">\r\n      <change afterPath=\"$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0720cc63-a475-466b-a604-90cf00200d14\" />\r\n        <option name=\"url\" value=\"https://github.com/TwDDarkKill/Senai.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OODdZQMRZ80OfggHm86kDqrbWG\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Application.Desafio\">\r\n    <configuration name=\"Calculadora_2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Calculadora_2\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Desafio\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Desafio\" />\r\n      <module name=\"Exercicios_SWC\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX10\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX10\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX11\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX11\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX12\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"EX12\" />\r\n      <module name=\"Exercicios if-else\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Desafio\" />\r\n        <item itemvalue=\"Application.Calculadora_2\" />\r\n        <item itemvalue=\"Application.EX10\" />\r\n        <item itemvalue=\"Application.EX12\" />\r\n        <item itemvalue=\"Application.EX11\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"\" />\r\n      <created>1681422822200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681422822200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"18/04\">\r\n      <created>1681857207247</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681857207247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"20/04\">\r\n      <created>1682035616985</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682035616985</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"18/04\" />\r\n    <MESSAGE value=\"20/04\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"20/04\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Senai$EX12.ic\" NAME=\"EX12 Coverage Results\" MODIFIED=\"1682035521474\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 0f491bb2f64cc8ff59f97a031fae2ad97a4a79fd)
+-+++ b/.idea/workspace.xml	(date 1683232188953)
+-@@ -4,12 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+--      <change afterPath="$PROJECT_DIR$/Exercicios_SWC/src/Desafio.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_04_2023_18_42__Changes_.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exercicios_SWC/Calculadora_2.class" afterDir="false" />
+--    </list>
+-+    <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="20/04" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -129,7 +124,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1682035616985</updated>
+-     </task>
+--    <option name="localTasksCounter" value="3" />
+-+    <task id="LOCAL-00003" summary="20/04">
+-+      <created>1683232177787</created>
+-+      <option name="number" value="00003" />
+-+      <option name="presentableId" value="LOCAL-00003" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1683232177787</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="4" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]" date="1683250564677" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 04/05/2023 22:35 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57__Changes_.xml	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ /dev/null	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]" date="1683323864711" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 05/05/2023 18:57 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"Calculadora\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"0720cc63-a475-466b-a604-90cf00200d14\" />\r\n        <option name=\"url\" value=\"https://github.com/TwDDarkKill/Senai.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/PrimeiraClasse.java\" root0=\"SKIP_HIGHLIGHTING\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/SegundaClasse.java\" root0=\"SKIP_INSPECTION\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\" root0=\"SKIP_INSPECTION\" />\r\n    <setting file=\"file://$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2OODdZQMRZ80OfggHm86kDqrbWG\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"jdk.selected.JAVA_MODULE\": \"17\",\r\n    \"last_opened_file_path\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\",\r\n    \"onboarding.tips.debug.path\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\",\r\n    \"two.files.diff.last.used.file\": \"C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"Application.Calculadora.Main\">\r\n    <configuration name=\"Calculadora\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.senai.calculadora.Calculadora\" />\r\n      <module name=\"Calculadora\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.senai.calculadora.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Calculadora.Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Calculadora.Main\" />\r\n      <module name=\"Trabalho\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"Calculadora.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX1\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.exercicios.main.EX1\" />\r\n      <module name=\"Exercicios_05_05\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.exercicios.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EX2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"br.com.exercicios.main.EX2\" />\r\n      <module name=\"Exercicios_05_05\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"br.com.exercicios.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"execs.Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"execs.Main\" />\r\n      <module name=\"Trabalho\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"execs.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Calculadora.Main\" />\r\n        <item itemvalue=\"Application.execs.Main\" />\r\n        <item itemvalue=\"Application.Calculadora\" />\r\n        <item itemvalue=\"Application.EX2\" />\r\n        <item itemvalue=\"Application.EX1\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"718ebcdc-69da-4101-a623-c44e8e90fd4f\" name=\"Changes\" comment=\"\" />\r\n      <created>1681422822200</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1681422822200</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"18/04\">\r\n      <created>1681857207247</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681857207247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"20/04\">\r\n      <created>1682035616985</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682035616985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Calculadora\">\r\n      <created>1683482711307</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1683482711307</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"18/04\" />\r\n    <MESSAGE value=\"20/04\" />\r\n    <MESSAGE value=\"Calculadora\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Calculadora\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/Calculadora/src/Main.java</url>\r\n          <line>13</line>\r\n          <option name=\"timeStamp\" value=\"3\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Senai$EX12.ic\" NAME=\"EX12 Coverage Results\" MODIFIED=\"1682035521474\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ b/.idea/workspace.xml	(date 1683935647374)
+@@ -5,7 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2023_22_35__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_05_05_2023_18_57_[Changes]/shelved.patch" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_05_2023_01_13__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java" afterDir="false" />
+     </list>
+@@ -24,7 +28,6 @@
+   <component name="Git.Settings">
+     <option name="PUSH_AUTO_UPDATE" value="true" />
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+   &quot;lastFilter&quot;: {
+@@ -39,10 +42,9 @@
+     </option>
+   </component>
+   <component name="HighlightingSettingsPerFile">
+-    <setting file="file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/PrimeiraClasse.java" root0="SKIP_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/Exercicios_05_05/src/br/com/exercicios/modelo/SegundaClasse.java" root0="SKIP_INSPECTION" />
++    <setting file="file://$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/main/Main.java" root0="SKIP_INSPECTION" />
+     <setting file="file://$PROJECT_DIR$/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java" root0="SKIP_INSPECTION" />
+-    <setting file="file://$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/Trabalho/src/Objetos/CalculosMathematics.java" root0="SKIP_INSPECTION" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -58,30 +60,20 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "master",
+-    "jdk.selected.JAVA_MODULE": "17",
+-    "last_opened_file_path": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java",
+-    "onboarding.tips.debug.path": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java",
+-    "two.files.diff.last.used.file": "C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/Pastas da Biblioteca/Downloads&quot;,
++    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/TecDevNoite/IdeaProjects/Senai/Exercicios_OO/src/Main.java&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager" selected="Application.Calculadora.Main">
+-    <configuration name="Calculadora" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="br.senai.calculadora.Calculadora" />
+-      <module name="Calculadora" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="br.senai.calculadora.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
++    <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
++      <module name="Exercicios_SWC" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -99,38 +91,26 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="EX1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="br.com.exercicios.main.EX1" />
+-      <module name="Exercicios_05_05" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="br.com.exercicios.main.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
++    <configuration name="Desafio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Desafio" />
++      <module name="Exercicios_SWC" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="EX2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="br.com.exercicios.main.EX2" />
+-      <module name="Exercicios_05_05" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="br.com.exercicios.main.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
++    <configuration name="EX10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="EX10" />
++      <module name="Exercicios if-else" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="execs.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="execs.Main" />
+-      <module name="Trabalho" />
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="br.com.senai.main.Main" />
++      <module name="Exercicios_OO" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="execs.*" />
++          <option name="PATTERN" value="br.com.senai.main.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -141,10 +121,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.Calculadora.Main" />
+-        <item itemvalue="Application.execs.Main" />
+-        <item itemvalue="Application.Calculadora" />
+-        <item itemvalue="Application.EX2" />
+-        <item itemvalue="Application.EX1" />
++        <item itemvalue="Application.Main" />
++        <item itemvalue="Application.Desafio" />
++        <item itemvalue="Application.Calculadora_2" />
++        <item itemvalue="Application.EX10" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -172,13 +152,27 @@
+       <updated>1682035616985</updated>
+     </task>
+     <task id="LOCAL-00003" summary="Calculadora">
+-      <created>1683482711307</created>
++      <created>1683243406093</created>
+       <option name="number" value="00003" />
+       <option name="presentableId" value="LOCAL-00003" />
+       <option name="project" value="LOCAL" />
+-      <updated>1683482711307</updated>
++      <updated>1683243406093</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="Calculadora">
++      <created>1683331549855</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1683331549855</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Calculadora">
++      <created>1683331561903</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1683331561903</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -193,22 +187,10 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="18/04" />
+     <MESSAGE value="20/04" />
+     <MESSAGE value="Calculadora" />
+     <option name="LAST_COMMIT_MESSAGE" value="Calculadora" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/Calculadora/src/Main.java</url>
+-          <line>13</line>
+-          <option name="timeStamp" value="3" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/Senai$EX12.ic" NAME="EX12 Coverage Results" MODIFIED="1682035521474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 729e4e2021354a76e57c93c61b1a839a4f734d46)
++++ b/.idea/misc.xml	(date 1683583134023)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
