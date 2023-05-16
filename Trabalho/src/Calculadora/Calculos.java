@@ -1,7 +1,5 @@
 package Calculadora;
-
 import Objetos.CalculosMathematics;
-
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -24,6 +22,9 @@ public class Calculos {
 
                                 Insira a opção
                                 """, "Menu de opções", JOptionPane.PLAIN_MESSAGE));
+                if (menu <1 || menu >3){
+                    JOptionPane.showMessageDialog(null,"Opção inválida","Erro",JOptionPane.WARNING_MESSAGE);
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
             }
