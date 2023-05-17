@@ -4,13 +4,12 @@ import Objetos.CalculosMathematics;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
 public class Calculos {
     public static void main(String[] args) {
         ArrayList<String> historico = new ArrayList<>();
-        double resultado = 0, v1 = 0, v2 = 0;
-        int operador = 0;
+        double resultado, v1, v2;
+        int operador;
         CalculosMathematics calculosMathematics = new CalculosMathematics();
         while (true) {
             int menu = 0;
@@ -30,7 +29,7 @@ public class Calculos {
             }
 
             switch (menu) {
-                case 1:
+                case 1 -> {
                     while (true) {
                         try {
                             v1 = Double.parseDouble(JOptionPane.showInputDialog
@@ -45,16 +44,16 @@ public class Calculos {
                             operador = Integer.parseInt(JOptionPane.showInputDialog(null,
                                     """
                                             Escolha a operação
-                                            
+                                                                                        
                                             1 - Soma
                                             2 - Subtração
                                             3 - Multiplicação
                                             4 - Divisão
-                                            
+                                                                                        
                                             Insirá a opção
-                                            ""","Operações aritméticas",JOptionPane.QUESTION_MESSAGE));
+                                            """, "Operações aritméticas", JOptionPane.QUESTION_MESSAGE));
 
-                            if (operador ==1 || operador ==2 || operador ==3 || operador==4) { //Verifica se o operador é válido
+                            if (operador == 1 || operador == 2 || operador == 3 || operador == 4) { //Verifica se o operador é válido
                                 break; //Encerra o loop
                             } else {
                                 JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira uma operação válida", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
@@ -73,22 +72,22 @@ public class Calculos {
                         }
                     }
                     switch (operador) {
-                        case 1:
+                        case 1 -> {
                             resultado = calculosMathematics.Soma(v1, v2);
                             JOptionPane.showMessageDialog(null, String.format("O resultado da soma é %.2f", resultado));
                             historico.add(String.format("%.2f + %.2f = %.2f", v1, v2, resultado));
-                            break;
-                        case 2:
+                        }
+                        case 2 -> {
                             resultado = calculosMathematics.Subtrai(v1, v2);
                             JOptionPane.showMessageDialog(null, String.format("O resultado da subtração é %.2f", resultado));
                             historico.add(String.format("%.2f - %.2f = %.2f", v1, v2, resultado));
-                            break;
-                        case 3:
+                        }
+                        case 3 -> {
                             resultado = calculosMathematics.Multiplica(v1, v2);
                             JOptionPane.showMessageDialog(null, String.format("O resultado da multiplicação é %.2f", resultado));
                             historico.add(String.format("%.2f * %.2f = %.2f", v1, v2, resultado));
-                            break;
-                        case 4:
+                        }
+                        case 4 -> {
                             if (v2 == 0) {
                                 JOptionPane.showMessageDialog(null, "Não é possível realizar uma divisão por zero!");
                             } else {
@@ -96,14 +95,12 @@ public class Calculos {
                                 JOptionPane.showMessageDialog(null, String.format("O resultado da divisão é %.2f", resultado));
                                 historico.add(String.format("%.2f / %.2f = %.2f", v1, v2, resultado));
                             }
-                            break;
-                        default:
-                            JOptionPane.showMessageDialog(null, "Erro, operador inválido", "Erro", JOptionPane.ERROR_MESSAGE);
-                            break;
+                        }
+                        default ->
+                                JOptionPane.showMessageDialog(null, "Erro, operador inválido", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
-                    break;
-
-                case 2:
+                }
+                case 2 -> {
                     StringBuilder sb = new StringBuilder();
                     sb.append("Histórico\n\n");
                     sb.append(String.format("Foram realizadas %d operações\n\n", historico.size()));
@@ -112,11 +109,11 @@ public class Calculos {
                         sb.append("\n");
                     }
                     JOptionPane.showMessageDialog(null, sb.toString(), "Histórico", JOptionPane.PLAIN_MESSAGE);
-                    break;
-
-                case 3:
+                }
+                case 3 -> {
                     JOptionPane.showMessageDialog(null, "Encerrando aplicação", "Finalizando", JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
+                }
             }
         }
     }

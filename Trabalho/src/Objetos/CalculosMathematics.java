@@ -13,56 +13,33 @@ public class CalculosMathematics {
         soma = v1 + v2;
         return soma;
     }
-
-    private void setSoma(double soma) {
-        this.soma = soma;
-    }
-
-    private double getSubtrai() {
-        subtrai = v1-v2;
-        return subtrai;
-    }
-
-    private void setSubtrai(double subtrai) {
-        this.subtrai = subtrai;
-    }
-
-    private double getMultiplica() {
-        multiplica = v1*v2;
-        return multiplica;
-    }
-
-    private void setMultiplica(double multiplica) {
-        this.multiplica = multiplica;
-    }
-
-    private double getDivide() {
-        divide = v1 / v2;
-        return divide;
-    }
-
-    private void setDivide(double divide) {
-        this.divide = divide;
-    }
-
     public double Soma(double v1, double v2) {
         this.v1 = v1;
         this.v2 = v2;
         return getSoma();
     }
-
+    private double getSubtrai() {
+        subtrai = v1-v2;
+        return subtrai;
+    }
     public double Subtrai(double v1, double v2) {
         this.v1 = v1;
         this.v2 = v2;
         return getSubtrai();
     }
-
+    private double getMultiplica() {
+        multiplica = v1*v2;
+        return multiplica;
+    }
     public double Multiplica(double v1, double v2) {
         this.v1 = v1;
         this.v2 = v2;
         return getMultiplica();
     }
-
+    private double getDivide() {
+        divide = v1 / v2;
+        return divide;
+    }
     public double Divide(double v1, double v2) {
         this.v1 = v1;
         this.v2 = v2;

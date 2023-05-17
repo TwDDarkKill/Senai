@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Trabalho/src/Calculadora/Calculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho/src/Calculadora/Calculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trabalho/src/Objetos/CalculosMathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho/src/Objetos/CalculosMathematics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2OODdZQMRZ80OfggHm86kDqrbWG" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
