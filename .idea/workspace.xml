@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2023_20_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2023_20_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2023_20_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_05_2023_20_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Trabalho/src/Calculadora/Calculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho/src/Calculadora/Calculos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Trabalho/Calculadora/Calculos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trabalho/Calculadora/Calculos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trabalho/Objetos/CalculosMathematics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trabalho/Objetos/CalculosMathematics.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +70,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TecDevNoite/Documents/Java/POO&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/TwDDarkKill™/IdeaProjects/Senai/Exercicios_OO/src/br/com/senai/modelo/Veiculo.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Calculos">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Calculadora_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Calculadora_2" />
       <module name="Exercicios_SWC" />
@@ -106,9 +109,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EX13" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="EX13" />
-      <module name="Exercicios if-else" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="calculadora.Main" />
+      <module name="Trabalho" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="calculadora.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Calculos" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Calculadora.Main" />
-        <item itemvalue="Application.Main_2" />
+        <item itemvalue="Application.Calculos" />
         <item itemvalue="Application.Calculadora_2" />
-        <item itemvalue="Application.EX13" />
+        <item itemvalue="Application.Main_2" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684196263303</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Calculadora">
+      <created>1684196985615</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684196985615</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
