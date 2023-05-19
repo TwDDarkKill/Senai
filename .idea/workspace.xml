@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="718ebcdc-69da-4101-a623-c44e8e90fd4f" name="Changes" comment="Calculadora">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho/src/Calculadora/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trabalho/Calculadora/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trabalho/Calculadora/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684535306618</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Calculadora">
+      <created>1684536111940</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684536111940</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

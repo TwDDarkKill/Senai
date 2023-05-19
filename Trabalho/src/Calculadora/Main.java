@@ -11,7 +11,6 @@ public class Main {
         ArrayList<String> historico = new ArrayList<>();
         double resultado = 0, v1 = 0, v2 = 0;
         int operador = 0;
-
         CalculosMathematics calculosMathematics = new CalculosMathematics();
 
         while (true) {
@@ -28,8 +27,9 @@ public class Main {
 
                                 Insira a opção
                                 """, "Menu de opções", JOptionPane.PLAIN_MESSAGE));
-                if (menu < 1 || menu > 4) {
-                    JOptionPane.showMessageDialog(null, "Opção inválida, tente novamente.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
+                if (menu == 1 || menu == 2 || menu == 3 || menu == 4){
+                } else{
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
@@ -61,9 +61,10 @@ public class Main {
                                             Insirá a opção
                                             ""","Operações aritméticas",JOptionPane.QUESTION_MESSAGE));
 
-                            if (operador < 1 || operador > 4) {
-                                JOptionPane.showMessageDialog(null, "Opção inválida, tente novamente.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
-                                break;
+                            if (operador ==1 || operador ==2 || operador ==3 || operador==4) { //Verifica se o operador é válido
+                                break; //Encerra o loop
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira uma operação válida", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
                             }
                         } catch (NumberFormatException e) {
                             JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
