@@ -24,6 +24,10 @@ public class Calculos {
 
                                 Insira a opção
                                 """, "Menu de opções", JOptionPane.PLAIN_MESSAGE));
+                if (menu == JOptionPane.CLOSED_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Encerrando aplicação", "Finalizando", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Opção inválida. Por favor, insira um número válido.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
             }
